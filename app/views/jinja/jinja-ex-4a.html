@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="jinja-ex-4b" method="post">
+
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="options-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-fieldset__heading">
+                      Select all that apply
+                    </h1>
+                  </legend>
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="Options-1" name="Options" type="checkbox" value="Option 1">
+                      <label class="govuk-label govuk-checkboxes__label" for="Options-1">
+                        Option 1
+                      </label>
+                    </div>
+                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="Options-2" name="Options" type="checkbox" value="Option 2">
+                      <label class="govuk-label govuk-checkboxes__label" for="Options-2">
+                        Option 2
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="Options-3" name="Options" type="checkbox" value="Option 3">
+                      <label class="govuk-label govuk-checkboxes__label" for="Options-3">
+                        Option 3
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="Options-4" name="Options" type="checkbox" value="Option 4">
+                      <label class="govuk-label govuk-checkboxes__label" for="Options-4">
+                        Option 4
+                      </label>
+                    </div>
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="Options-5" name="Options" type="checkbox" value="Option 5">
+                      <label class="govuk-label govuk-checkboxes__label" for="Options-5">
+                        Option 5
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,7 +1,7 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ serviceName }}
+{{ serviceName }} - jinja
 {% endblock %}
 
 {% block header %}
@@ -18,9 +18,9 @@
 
       </svg>
 
-      <a class="moj-header__link moj-header__link--organisation-name" href="index">Companies House</a>
+      <a class="moj-header__link moj-header__link--organisation-name" href="../../index">Companies House</a>
 
-      <a class="moj-header__link moj-header__link--service-name" href="index">Interaction designer guide</a>
+      <a class="moj-header__link moj-header__link--service-name" href="../../index">Interaction designer guide</a>
     </div>
   </div>
 
@@ -35,15 +35,15 @@
 
         <ul class="moj-primary-navigation__list">
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="/prototyping/prototyping">Prototyping principles</a>
+            <a class="moj-primary-navigation__link" href="../prototyping/prototyping">Prototyping principles</a>
           </li>
 
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="/javascript/javascript">JavaScript</a>
+            <a class="moj-primary-navigation__link" href="../javascript/javascript">JavaScript</a>
           </li>
 
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="/jinja/jinja">Jinja</a>
+            <a class="moj-primary-navigation__link" aria-current="page" href="jinja">Jinja</a>
           </li>
         </ul>
 
@@ -54,79 +54,316 @@
 
 </div>
 
-<div class="hero-banner">
-  <div class="hero-text-box"> 
-    <h1 class="govuk-heading-xl hero-title">A guide for Interaction designers at Companies house</h1>
-    <p class="govuk-body-l hero-text">Use this guide to help with coding prototypes and help make them consistent across companies house.</p>
-  </div>
-</div>
-
-<div class="whats-new-banner">
-  <div class="whats-new-text-box"> 
-    <h2 class="govuk-heading-l">What’s new</h2>
-    <p class="govuk-body">1 March 2023: First version of the Companies House interaction designer guide.</p>
-    <p class="govuk-body">Guides added for prototyping principles, JavaScript and Jinja.</p>
-  </div>
-</div>
-
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-l">Prototyping principles</h2>
-    <p class="govuk-body">Contains guides to prototyping including how to create a consistent index page in your prototype, and how to have multiple versions within the same prototype.</p>
-    <p class="govuk-body">Jump to <a href="../prototyping/prototyping" class="govuk-link">Prototyping principles</a>.</p>
-  </div>
-  <div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-l">Javascript</h2>
-    <p class="govuk-body">Contains guides on JavaScript including how to display errors, and how to show and remove content on button click.</p>
-    <p class="govuk-body">Jump to <a href="/javascript/javascript" class="govuk-link">Javascript tutorials</a>.</p>
-  </div>
-  <div class="govuk-grid-column-one-third"> 
-    <h2 class="govuk-heading-l">Jinja</h2>
-    <p class="govuk-body">Contains guides on Jinja, including how to use IF statements and For statements to show and hide page sections.</p> 
-    <p class="govuk-body">Jump to <a href="/jinja/jinja" class="govuk-link">Jinja tutorials</a>.</p> 
-  </div>
-</div>
 
-<hr class="govuk-!-margin-top-5 govuk-!-margin-bottom-5">
+    <nav class="moj-side-navigation" aria-label="Side navigation">
+      <h4 class="moj-side-navigation__title">Jinja guide</h4>
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item">
+          <a href="#what-is-jinja">What is Jinja?</a>
+        </li>
 
-{% endblock %}
+        <li class="moj-side-navigation__item">
+          <a href="#if-statements">If statements</a>
+        </li>
 
-{% block footer %}
-<footer class="govuk-footer " role="contentinfo">
-  <div class="govuk-width-container ">
-    <div class="govuk-footer__meta">
-      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          class="govuk-footer__licence-logo"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 483.2 195.7"
-          height="17"
-          width="41">
-          <path
-            fill="currentColor"
-            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
-        </svg>
-        <span class="govuk-footer__licence-description">
-          All content is available under the
-          <a
-            class="govuk-footer__link"
-            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
-            rel="license">Open Government Licence v3.0</a>, except where otherwise stated
-        </span>
+        <li class="moj-side-navigation__item">
+          <a href="#for-loops">For loops</a>
+        </li>
+
+        <li class="moj-side-navigation__item">
+          <a href="#includes">Includes</a>
+        </li>
+
+        <li class="moj-side-navigation__item">
+          <a href="#filters">Filters</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-notification-banner" role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
       </div>
-      <div class="govuk-footer__meta-item">
-        <a
-          class="govuk-footer__link govuk-footer__copyright-logo"
-          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© Crown copyright</a>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          This guide assumes familiarity with using data</p>
+        <ul class="govuk-list">
+          <li>
+            <a class="govuk-link" href="https://prototype-kit.service.gov.uk/docs/session">Prototype kit guide to storing data in session</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="https://prototype-kit.service.gov.uk/docs/pass-data">Prototype kit guide to passing data from page to page</a>
+          </li>
+        </ul>
       </div>
     </div>
+
+    <span class="govuk-caption-xl">Prototyping</span>
+    <h1 class="govuk-heading-xl">
+      Jinja guide
+    </h1>
+
+
+    <h2 class="govuk-heading-l" id="what-is-jinja">What is Jinja</h2>
+
+    <p class="govuk-body">Jinja is a fast, expressive, extensible templating engine. Special placeholders in the template allow writing code similar to Python syntax.</p> 
+    <p>The template is passed data to render the final document. This allows sections of the code to be shown or hidden depending on user actions.></p>
+    <p>Jinja uses various statements contained by {% raw %}<b>{% ...%}</b>.{% endraw %} </p>
+
+    <p class="govuk-body"><a href="https://jinja.palletsprojects.com/en/3.0.x/templates/" class="govuk-link">Official Jinja documentation</a>.</p>
+
+    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
+
+    <h2 class="govuk-heading-l" id="if-statements">If statements</h2>
+
+    <p class="govuk-body">An IF Statement is the cornerstone of any programming language. In Jinja it allows page content to be shown or hidden dependent on a variable set by a user action.<p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Simple IF Statement</h3>
+
+    <p>If statements are started with an {% raw %}<b>{% if ...%}</b>.{% endraw %} and ended with {% raw %}<b>{% endif %}</b>.{% endraw %}</p>
+
+    <div class="code-box">
+      {% raw %}
+        <p><b>{% if data['variable-1'] %}</b></p>
+        
+        <p>... HTML to show if variable-1 is true ...</p>
+
+        <p><b>{% endif %}</b></p>
+      {% endraw %}
+    </div>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Simple IF...ELSE Statement</h3>
+
+    <p>You can also add an ELSE statement to an IF statement. This will allow you to show a section if a variable is one thing and a different section if it is something else. </p>
+
+
+    <div class="code-box">
+      {% raw %}
+        <p><b>{% if data['variable-2'] == 'Option 1' %}</b></p>
+        
+        <p>HTML if variable-2 is equal to 'Option-1' ...</p>
+
+        <p><b>{% else %}</b></p>
+
+        <p>HTML if variable-2 is not equal to 'Option-1' ...</p>
+
+        <p><b>{% endif %}</b></p>
+      {% endraw %}
+    </div>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Simple IF...ELIF...ELSE Statement</h3>
+
+    <p>You can also add an ELIF statement to an IF statement. This will allow you to have multiple else sections. This would allow showing section 1 if the variable is option one, else section 2 if the variable is option 2 or section 3 if the variable is option 3</p>
+
+    <div class="code-box">
+      {% raw %}
+        <p><b>{% if data['variable-3'] == 'Option 1' %}</b></p>
+        
+        <p>HTML if variable-3 is equal to 'Option-1' ...</p>
+
+        <p><b>{% elif data['variable-3'] == 'Option 2' %}</b> /p>
+
+        <p>HTML if variable-3 is equal to 'Option-2' ...</p>
+
+        <p><b>{% else %}</b></p>
+
+        <p>HTML if variable-3 is equal to anything else ...</p>
+
+        <p><b>{% endif %}</b></p>
+      {% endraw %}
+    </div>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Example One</h3>
+
+    <p class="govuk-body"><a href="jinja-ex-1a" class="govuk-link" target="blank">Working example</a> (Opens in seperate page).</p>
+
+    <p class="govuk-body">This example shows how to show or hide a single word or piece of content on a page</p>
+
+    <p class="govuk-body">In the diagram below we can see that we want to show or hide the words 'do not' on the second page dependent to the users response on page one</p>
+
+    <img src='/public/images/if-image1.png'  class="govuk-!-margin-bottom-5" width="600">
+
+    <p class="govuk-body">The code to do this is as follows</p>
+
+    <div class="code-box">
+      {% raw %}
+      <p>&lt;h2 class=&quot;govuk-heading-m&quot;&gt;Summary&lt;/h2&gt;</p>
+      <p>&lt;hr&gt;</p>
+      <p>&lt;ul class=&quot;govuk-list govuk-list--bullet&quot;&gt;</p>
+        <p>&lt;li&gt;You </p>
+        <p><b>{% if data['variable-1'] == 'no' %}</b> <br>do not <br><b>{% endif %}</b></p>
+        <p>like ice cream&lt;/li&gt;</p>
+      <p>&lt;/ul&gt;</p>
+      {% endraw %}
+    </div>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Example Two</h3>
+
+    <p class="govuk-body"><a href="jinja-ex-2a" class="govuk-link" target="blank">Working example</a> (Opens in seperate page).</p>
+
+    <p class="govuk-body">This example shows how to show different page structure depending on the users previous input.</p>
+
+    <p class="govuk-body">In the diagram below we can see that we want to show the dessert section if the user selected 'dessert' and the coffee section if the user selected 'coffee'</p>
+
+    <img src='/public/images/if-image2.png'  class="govuk-!-margin-bottom-5" width="600">
+
+    <p class="govuk-body">The code to do this is as follows</p>
+
+    <div class="code-box">
+      {% raw %}
+      <p>&lt;h2 class=&quot;govuk-heading-m&quot;&gt;Menu&lt;/h2&gt;</p>
+      <p>&lt;hr&gt;</p>
+      <p>&lt;h3 class=&quot;govuk-heading-s&quot;&gt;Starter&lt;/h3&gt;</p>
+      <p>&lt;ul class=&quot;govuk-list govuk-list--bullet&quot;&gt;</p>
+      <p>&lt;li&gt; Soup/li&gt;</p>
+      <p>&lt;/ul&gt;</p>
+      <p>&lt;hr&gt;</p>
+      <p>&lt;h3 class=&quot;govuk-heading-s&quot;&gt;Main&lt;/h3&gt;</p>
+      <p>&lt;ul class=&quot;govuk-list govuk-list--bullet&quot;&gt;</p>
+      <p>&lt;li&gt; Chicken/li&gt;</p>
+      <p>&lt;/ul&gt;</p>
+
+      <p><b>{% if data['variable-1'] == 'dessert' %}</b></p>
+      <p>&lt;h3 class=&quot;govuk-heading-s&quot;&gt;Dessert&lt;/h3&gt;</p>
+      <p>&lt;ul class=&quot;govuk-list govuk-list--bullet&quot;&gt;</p>
+      <p>&lt;li&gt; Ice cream/li&gt;</p>
+      <p>&lt;/ul&gt;</p>
+      <p><b>{% else %}</b></p>
+      <p>&lt;h3 class=&quot;govuk-heading-s&quot;&gt;Coffee&lt;/h3&gt;</p>
+      <p><b>{% endif %}</b></p>
+
+      {% endraw %}
+    </div>
+
+    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
+
+    <h2 class="govuk-heading-l" id="for-loops">For loops</h2>
+
+    <p class="govuk-body">A FOR Statement allows you to loop through a list of variables and display or interact with themin turn.<p>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Simple FOR loop</h3>
+
+    <p>If statements are started with an {% raw %}<b>{% for item in ...%}</b>.{% endraw %} and ended with {% raw %}<b>{% endif %}</b>.{% endraw %}. The word 'item' can be any word, use something that makes sense in the context. You will have to refer to the list item by that word when you refer to it in code.  </p>
+
+    <div class="code-box">
+      {% raw %}
+        <p><b>{% for item in data['item-list'] %}</b></p>
+        
+        <p>... HTML to show for each item in list ...</p>
+
+        <p><b>{% endif %}</b></p>
+      {% endraw %}
+    </div>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Example One</h3>
+
+    <p class="govuk-body"><a href="jinja-ex-3a" class="govuk-link" target="blank">Working example</a> (Opens in seperate page).</p>
+
+    <p class="govuk-body">This example shows how to show a list for each item selected in a checkbox component</p>
+
+    <p class="govuk-body">In the diagram below we can see that the user has selected items from a checkbox component. We want to
+      show each selected item in a list on another page </p>
+
+    <img src='/public/images/for-image1.png'  class="govuk-!-margin-bottom-5" width="600">
+
+    <p class="govuk-body">The code to do this is as follows</p>
+
+    <div class="code-box">
+      {% raw %}
+      <p>&lt;h2 class=&quot;govuk-heading-m&quot;&gt;Selected options&lt;/h2&gt;</p>
+      <p>&lt;hr&gt;</p>
+      
+      <p><b>{% for option in data['Options'] %}</b></p>
+      <p>&lt;p&gt;{{ option }}&lt;/p&gt;</p>
+      <p><b>{% endfor %}</b></p>
+
+      {% endraw %}
+    </div>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-6">Example Two</h3>
+
+    <p class="govuk-body"><a href="jinja-ex-4a" class="govuk-link" target="blank">Working example</a>(Opens in seperate page).</p>
+
+    <p class="govuk-body">This example shows how to show more complicated html for each item selected in a checkbox component</p>
+
+    <p class="govuk-body">In the diagram below we can see that the user has selected items from a checkbox component. We want to
+      show an input and text summary for each item selected. </p>
+
+    <img src='/public/images/for-image2.png'  class="govuk-!-margin-bottom-5" width="600">
+
+    <p class="govuk-body">The code to do this is as follows</p>
+
+    <div class="code-box">
+      {% raw %}
+      <p><b>{% for option in data['Options'] %}</b></p>
+      <p>&lt;div class=&quot;govuk-form-group&quot;&gt;</p>
+      <p>&lt;h1 class=&quot;govuk-label-wrapper&quot;&gt;</p>    
+      <p>&lt;label class=&quot;govuk-label govuk-label--m&quot; for=&quot;email&quot;&gt;</p>     
+      <p><b>{{ option }}</b></p>        
+      <p>&lt;/label&gt;</p>      
+      <p>&lt;/h1&gt;</p>    
+      <p>&lt;input class=&quot;govuk-input govuk-!-width-two-thirds&quot; name=&quot;option-title&quot; type=&quot;text&quot;&gt;</p>    
+      <p>&lt;/div&gt;</p>  
+      <p>&lt;textarea class=&quot;govuk-textarea govuk-!-padding-top-5&quot; name=&quot;options-text&quot; rows=&quot;5&quot;&gt;&lt;/textarea&gt;<p> 
+      <p>&lt;hr&gt;</p>  
+      <p><b>{% endfor %}</b></p> 
+      {% endraw %}
+    </div>
+
+    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
+
+    <h2 class="govuk-heading-l" id="includes">Includes</h2>
+
+    <p class="govuk-body">An INCLUDES statement is a way to include common pieces of code in multiple places without having to re-write it each time<p>
+
+    <p>INCLUDES statements are written as -
+
+    <div class="code-box">
+      {% raw %}
+        
+        <p>{% include "../includes/code-block.html" %}</p>
+
+      {% endraw %}
+    </div>
+
+    <p>where code-block.html is the common code you want to include. It is standard to keep all INCLUDES blocks in a folder called <b>'includes'</b></p></p>
+
+    <p class="govuk-body"><a href="jinja-ex-5a" class="govuk-link" target="blank">Working example</a> (Opens in seperate page).</p>
+
+    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
+
+    <h2 class="govuk-heading-l" id="filters">Filters</h2>
+
+    <p class="govuk-body">Filters allow you to format and change the data variables. <p>
+  
+    <p>Filters are written as a bar then the filter type. For example if you wanted to Capitalise a variable you would do the following -
+
+    <div class="code-box">
+      {% raw %}
+        
+        <p>{{ data['item'] | Capitalise }}</p>
+
+      {% endraw %}
+    </div>
+
+    <p>Many filters are available and are listed here in the <a href="https://jinja.palletsprojects.com/en/3.0.x/templates/#list-of-builtin-filters" class="govuk-link">Official Jinja documentation</a>.</p>
+
+    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
+
   </div>
-</footer>
+</div>
 
 {% endblock %}

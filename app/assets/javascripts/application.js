@@ -6,3 +6,9 @@
 window.GOVUKPrototypeKit.documentReady(() => {
   // Add JavaScript here
 })
+
+window.MOJFrontend.initAll();
+
+function reload() {
+  location.reload();
+}

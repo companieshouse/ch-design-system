@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Menu</h1>
+
+      <form class="form" action="jinja" method="post">
+
+        <hr>
+        <h1 class="govuk-heading-m">Starter</h1>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Soup</li>
+        </ul>
+
+        <hr>
+        <h1 class="govuk-heading-m">Main</h1>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Chicken</li>
+        </ul>
+        <hr>
+
+        {% if data['food-choice'] == 'dessert' %}
+          <h1 class="govuk-heading-m">Dessert</h1>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>Ice cream</li>
+          </ul>
+          <hr>
+        {% else %}
+          <h1 class="govuk-heading-m">Coffee</h1>
+          <hr>
+        {% endif %}
+
+        <button class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

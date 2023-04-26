@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Summary</h1>
+
+      <form class="form" action="jinja" method="post">
+
+        <hr>
+        <p class="govuk-body-l">
+          You
+          {% if data['ice-cream'] == 'no' %}
+          do not
+          {% endif %}
+          like ice cream
+        </p>
+        <hr>
+
+        <button class="govuk-button govuk-!-margin-top-5" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
