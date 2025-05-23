@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-{{ serviceName }} - JavaScript
+{{ serviceName }} - Language toggle
 {% endblock %}
 
 {% block header %}
@@ -18,9 +18,9 @@
 
       </svg>
 
-      <a class="moj-header__link moj-header__link--organisation-name" href="index">Companies House</a>
+      <a class="moj-header__link moj-header__link--organisation-name" href="../index">Companies House</a>
 
-      <a class="moj-header__link moj-header__link--service-name" href="index">Interaction designer guide</a>
+      <a class="moj-header__link moj-header__link--service-name" href="../index">Design system</a>
     </div>
   </div>
 
@@ -35,15 +35,11 @@
 
         <ul class="moj-primary-navigation__list">
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="../prototyping/prototyping">Prototyping principles</a>
+            <a class="moj-primary-navigation__link" aria-current="page" href="components">Components</a>
           </li>
 
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" aria-current="page" href="javascript">JavaScript</a>
-          </li>
-
-          <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="../jinja/jinja">Jinja</a>
+            <a class="moj-primary-navigation__link" href="../patterns/patterns">Patterns</a>
           </li>
         </ul>
 
@@ -63,128 +59,40 @@
 
     <nav class="moj-side-navigation" aria-label="Side navigation">
 
-      <h4 class="moj-side-navigation__title">JavaScript guide</h4>
+      <h4 class="moj-side-navigation__title">Components</h4>
       <ul class="moj-side-navigation__list">
-
         <li class="moj-side-navigation__item">
-          <a href="#set-up">Set up</a>
+          <a href="header">Header</a>
         </li>
 
         <li class="moj-side-navigation__item">
-          <a href="#routing">Routing</a>
+          <a href="footer">Footer</a>
         </li>
 
         <li class="moj-side-navigation__item">
-          <a href="#errors">Error messages</a>
+          <a href="language_toggle">Language toggle</a>
         </li>
 
         <li class="moj-side-navigation__item">
-          <a href="#hide">show or hide content</a>
+          <a href="emails">Companies house emails</a>
         </li>
+
+        <li class="moj-side-navigation__item">
+          <a href="nav">Navigation</a>
+        </li>
+
       </ul>
     </nav>
 
   </div>
   <div class="govuk-grid-column-two-thirds">
 
-    <div class="govuk-notification-banner" role="region"
-      aria-labelledby="govuk-notification-banner-title"
-      data-module="govuk-notification-banner">
-      <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-          Important
-        </h2>
-      </div>
-      <div class="govuk-notification-banner__content">
-        <p class="govuk-notification-banner__heading">
-          The official guide to routing between pages using Javascript</p>
-        <ul class="govuk-list">
-          <li>
-            <a class="govuk-link" target='blank' href="https://prototype-kit.service.gov.uk/docs/make-first-prototype/branching">Show different pages depending on user input</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <span class="govuk-caption-xl">Prototyping</span>
     <h1 class="govuk-heading-xl">
-      JavaScript guide
+      Language toggle
     </h1>
 
-    <div class="govuk-inset-text">
-      In the examples below I go through how I (Matt Tomas) go about doing these examples. Be aware that there are as many ways to do these things as there are designers and this is just one.
-    </div>
 
-
-    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
-
-    <h2 class="govuk-heading-l" id="set-up">Set up</h2>
-
-    <p class="govuk-body">Firstly lets set up the javascript to allow versioning in your prototype to be done easier.</p>
-
-    <p class="govuk-body">Add the code shown in bold below to the routes.js file within the app folder.</p>
-
-    <div class="code-box">
-      {% raw %}
-      <p>const govukPrototypeKit = require('govuk-prototype-kit')</p>
-      <p>const router = govukPrototypeKit.requests.setupRouter()</p>
-      <p><b>router.use('/', require('./routes/v1-routes.js'))</b></p>
-      {% endraw %}
-    </div>
-
-    <p class="govuk-body">    Now we need to add the file referenced. Create a new folder called <b>'routes'</b> within the app folder. Add a new JavaScript file called <b>'v1-routes.js'</b> to this folder.</p>
-
-    <p class="govuk-body">Add the following code to <b>'v1-routes.js'</b> -</p>
-
-    <div class="code-box">
-      {% raw %}
-      <p>const govukPrototypeKit = require('govuk-prototype-kit')</p>
-      <p>const router = govukPrototypeKit.requests.setupRouter()</p>
-      <p>module.exports=router;</b></p>
-      {% endraw %}
-    </div>
-
-    <p class="govuk-body">Now add a 'v1' folder inside the 'views' folder. Its in here you will put all your html files for version one of your prototype.</p>
-
-
-    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
-
-    <h2 class="govuk-heading-l" id="routing">Routing</h2>
-
-    <p class="govuk-body">In order to be able to move users between pages dependent on there actions you need to set up the routing correctly.</p>
-
-    <p class="govuk-body">Firstly create the pages involved in the interaction. </p>
-
-    <p>...</p>
-
-    <div class="code-box">
-      {% raw %}
-        <p><b>code</b></p>
-      {% endraw %}
-    </div>
-
-    <h3 class="govuk-heading-s govuk-!-margin-top-6">Example One</h3>
-
-    <p class="govuk-body"><a href="javascript-ex-1a" class="govuk-link" target="blank">Working example</a> (Opens in seperate page).</p>
-
-    <p class="govuk-body">In this example we are going to send the user to page 2 if they select 'Yes' and page 3 if they select 'No'. </p>
-
-    <img src='/public/images/if-image2.png'  class="govuk-!-margin-bottom-5" width="600">
-
-
-    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
-
-    <h2 class="govuk-heading-l" id="errors">Error messages</h2>
-
-    <p class="govuk-body">...To be completed...</p>
-
-    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
-
-    <h2 class="govuk-heading-l" id="hide">Show or hide content</h2>
-
-    <p class="govuk-body">...To be completed...</p>
-
-
+  
   </div>
 </div>
 

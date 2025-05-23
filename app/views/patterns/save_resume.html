@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-{{ serviceName }} - Principles
+{{ serviceName }} - Save and resume
 {% endblock %}
 
 {% block header %}
@@ -18,9 +18,9 @@
 
       </svg>
 
-      <a class="moj-header__link moj-header__link--organisation-name" href="index">Companies House</a>
+      <a class="moj-header__link moj-header__link--organisation-name" href="../index">Companies House</a>
 
-      <a class="moj-header__link moj-header__link--service-name" href="index">Interaction designer guide</a>
+      <a class="moj-header__link moj-header__link--service-name" href="../index">Design system</a>
     </div>
   </div>
 
@@ -35,15 +35,11 @@
 
         <ul class="moj-primary-navigation__list">
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" aria-current="page" href="prototyping">Prototyping principles</a>
+            <a class="moj-primary-navigation__link" href="../components/components">Components</a>
           </li>
 
           <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="../javascript/javascript">JavaScript</a>
-          </li>
-
-          <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" href="../jinja/jinja">Jinja</a>
+            <a class="moj-primary-navigation__link" aria-current="page" href="patterns">Patterns</a>
           </li>
         </ul>
 
@@ -63,14 +59,22 @@
 
     <nav class="moj-side-navigation" aria-label="Side navigation">
 
-      <h4 class="moj-side-navigation__title">Prototyping principles</h4>
+      <h4 class="moj-side-navigation__title">Patterns</h4>
       <ul class="moj-side-navigation__list">
         <li class="moj-side-navigation__item">
-          <a href="#index">Index page style</a>
+          <a href="hiding_info">Hiding information</a>
         </li>
 
         <li class="moj-side-navigation__item">
-          <a href="#versions">Versioning</a>
+          <a href="save_resume">Save and resume</a>
+        </li>
+
+        <li class="moj-side-navigation__item">
+          <a href="timeout">Timeout warning</a>
+        </li>
+
+        <li class="moj-side-navigation__item">
+          <a href="accessibility_statement">Accessibility statement</a>
         </li>
 
       </ul>
@@ -79,20 +83,10 @@
   </div>
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-xl">Prototyping</span>
     <h1 class="govuk-heading-xl">
-      Protyping principles
+      Save and resume
     </h1>
 
-    <h2 class="govuk-heading-l" id="index">Index page style</h2>
-
-    <p class="govuk-body">...To be completed...</p>
-
-    <hr class="govuk-!-margin-top-8 govuk-!-margin-bottom-6">
-
-    <h2 class="govuk-heading-l" id="versioning">Versioning</h2>
-
-    <p class="govuk-body">...To be completed...</p>
 
   
   </div>
